@@ -5,17 +5,13 @@ import classes from './Burger.css';
 
 
 const burger = (props) => {
-    let ingredients_list = Object.keys(props.ingredients)
-    .map((igKey) => {
-        return [...Array(props.ingredients[igKey])]
-        .map((_, i) => {
-           return <BurgerIngredient key={igKey + i} type={igKey}/>
-        })
-    }).reduce((arr,el) => {
-        return arr.concat(el);
-    },[]);
+    let ingredients_list = [];
 
-    if(ingredients_list.length === 0){
+    props.ingredients.forEach((element,i) => {
+        ingredients_list.push(<BurgerIngredient key={i} type={element}/>)
+    });
+
+    if(props.ingredients.length === 0){
         ingredients_list = <p> Start adding the ingredients. </p>
     }
  return (
