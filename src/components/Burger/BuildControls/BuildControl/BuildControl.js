@@ -8,7 +8,6 @@ const buildControl = (props) => (
             {props.label}
         </div>
         <button className={classes.More} onClick={props.added} > Add </button>
-        {console.log(props.disabled)}
         <button className={classes.Less} onClick={props.removed} disabled={props.disabled}> Remove </button>
     </div>
 );

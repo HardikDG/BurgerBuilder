@@ -11,17 +11,15 @@ const orderSummary = (props) => {
     //         <span style={{ textTransform:'capitalize'}}>{igKey} </span> : { props.ingredients[igKey] } 
     //         </li>
     // })
-
-    var counts = {};
+    let ingredients_summary = null;
+    if(props.ingredients){
+        var counts = {};
     props.ingredients.forEach(function(x) { counts[x] = (counts[x] || 0)+1; });
 
-   const ingredients_summary = Object.keys(counts).map((igKey) => {
+    ingredients_summary = Object.keys(counts).map((igKey) => {
         return <li key={igKey}> <span style={{ textTransform:'capitalize'}}>{igKey} </span> : { counts[igKey] } </li>
     })
-
-    // props.ingredients.forEach((element,i) => {
-    //     ingredients_summary.push(<li key={i}> <span style={{ textTransform:'capitalize'}}>{element} </span> : { counts[element] } </li>)
-    // });
+    }
     
     ;
     return (
